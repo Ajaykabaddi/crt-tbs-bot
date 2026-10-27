@@ -30,8 +30,8 @@ jobs:
       - run: pip install ccxt requests
       - name: Run bot
         env:
-          TG_TOKEN: "8975835516:AAGA6dNrSAP7E0nbUDRsC-jGlG5UcU7Qd2A"
-          TG_CHAT_ID: "1309415418"
+          TG_TOKEN: ${{ secrets.TGTOKEN }}
+          TG_CHAT_ID: ${{ secrets.TGCHATID }}
           EXCHANGE: okx
         run: python crt_tbs_bot.py ${{ github.event.inputs.mode || 'once' }}
       - name: Save state
